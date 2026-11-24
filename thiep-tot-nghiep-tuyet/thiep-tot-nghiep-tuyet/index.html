@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f35d83">
+<title>Thư mời tốt nghiệp · Nguyễn Thị Tuyết</title>
+<meta name="description" content="Trân trọng kính mời bạn đến dự lễ tốt nghiệp của Nguyễn Thị Tuyết - Trường THPT Hoài Đức B, ngày 20/12/2026.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thư mời tốt nghiệp · Nguyễn Thị Tuyết">
+<meta property="og:description" content="Mời bạn đến chung vui lễ tốt nghiệp - Trường THPT Hoài Đức B, ngày 20/12/2026.">
+<meta property="og:image" content="images/og.jpg">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+<canvas id="snow"></canvas>
+
+<!-- BÌA MỞ THIỆP -->
+<div id="cover">
+  <div class="inner">
+    <div class="tag">Thư mời tham dự lễ tốt nghiệp của</div>
+    <span class="cap">🎓</span>
+    <h1 id="coverName">Nguyễn Thị Tuyết</h1>
+    <button class="btn pulse" id="openBtn" type="button">💌 Mở thiệp</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="corner-label">Graduation</div>
+  <div class="wrap">
+    <p class="pre" id="greet">Thư mời tham dự lễ tốt nghiệp của</p>
+    <h2 id="heroName">Nguyễn Thị Tuyết</h2>
+
+    <div class="polaroid rv">
+      <div class="tape"></div><div class="tape r"></div>
+      <div class="stamp"><span>CLASS OF</span><b>2026</b></div>
+      <img id="heroPhoto" alt="Ảnh tốt nghiệp">
+      <div class="cap-txt">A new chapter ✨</div>
+    </div>
+
+    <p class="school" id="schoolTxt"></p>
+    <p class="year" id="yearTxt"></p>
+    <p class="msg">Một hành trình khép lại, một chặng đường mới mở ra. Rất mong có bạn cùng chung vui trong ngày đặc biệt này.</p>
+    <div class="scroll-hint">⌄</div>
+  </div>
+</section>
+
+<!-- LỊCH + ĐỊA ĐIỂM -->
+<section>
+  <div class="wrap">
+    <div class="card rv">
+      <div class="date-big">
+        <small>Ngày tổ chức</small>
+        <div class="dow" id="dow"></div>
+        <div class="dmy" id="dmy"></div>
+        <div class="time" id="timeTxt"></div>
+      </div>
+      <div class="cal-month" id="calMonth"></div>
+      <div class="cal" id="cal"></div>
+
+      <div class="loc">
+        <h3>Địa điểm</h3>
+        <div class="venue" id="venue"></div>
+        <div class="addr" id="addr"></div>
+        <iframe id="mapFrame" title="Bản đồ địa điểm" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a class="btn line" id="mapLink" target="_blank" rel="noopener">📍 Chỉ đường</a>
+      </div>
+      <p class="dress">👗 Trang phục: <b id="dress"></b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ĐẾM NGƯỢC -->
+<section>
+  <div class="wrap rv">
+    <div class="celebrate">Let's celebrate!</div>
+    <p class="sec-sub">Đếm ngược đến ngày đặc biệt</p>
+    <div class="cd-wrap">
+      <div class="cd"><b id="cd-d">00</b><span>Ngày</span></div>
+      <div class="cd"><b id="cd-h">00</b><span>Giờ</span></div>
+      <div class="cd"><b id="cd-m">00</b><span>Phút</span></div>
+      <div class="cd"><b id="cd-s">00</b><span>Giây</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHƯƠNG TRÌNH -->
+<section>
+  <div class="wrap">
+    <h2 class="sec-title rv">Chương trình trong ngày</h2>
+    <p class="sec-sub rv">Lịch trình dự kiến</p>
+    <div class="timeline rv" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ALBUM -->
+<section>
+  <div class="wrap">
+    <h2 class="sec-title rv">Những khoảnh khắc thanh xuân</h2>
+    <p class="sec-sub rv">Chạm vào ảnh để xem lớn hơn</p>
+    <div class="album rv" id="album"></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+
+<!-- XÁC NHẬN + LỜI CHÚC -->
+<section id="rsvp">
+  <div class="wrap">
+    <div class="card rv">
+      <h2 class="sec-title">Xác nhận tham dự</h2>
+      <p class="sec-sub">Để mình chuẩn bị chu đáo hơn nhé 💌</p>
+      <form id="rsvpForm" novalidate>
+        <div class="field">
+          <label for="fName">Tên của bạn *</label>
+          <input type="text" id="fName" maxlength="60" placeholder="Nguyễn Văn A" autocomplete="name">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="fPhone">Số điện thoại</label>
+            <input type="tel" id="fPhone" maxlength="20" placeholder="09xx xxx xxx" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="fGuests">Số người đi cùng</label>
+            <select id="fGuests">
+              <option value="1">Chỉ mình tôi</option>
+              <option value="2">2 người</option>
+              <option value="3">3 người</option>
+              <option value="4">4 người</option>
+              <option value="5">5 người trở lên</option>
+            </select>
+          </div>
+        </div>
+        <div class="choice">
+          <label><input type="radio" name="att" value="Tôi sẽ tham dự" checked><span>🎉 Tôi sẽ tham dự</span></label>
+          <label><input type="radio" name="att" value="Rất tiếc, tôi không thể đến"><span>🥲 Rất tiếc, tôi không thể đến</span></label>
+        </div>
+        <div class="field">
+          <label for="fMsg">Lời chúc gửi đến Tuyết</label>
+          <textarea id="fMsg" rows="4" maxlength="500" placeholder="Viết lời chúc của bạn..."></textarea>
+          <div class="count"><span id="msgCount">0</span>/500</div>
+        </div>
+        <div class="send-wrap">
+          <button class="btn" id="sendBtn" type="submit">✉️ Gửi xác nhận</button>
+        </div>
+        <p class="hint" id="sendHint"></p>
+        <div id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LIÊN HỆ -->
+<section>
+  <div class="wrap rv">
+    <h2 class="sec-title" style="font-size:1.9rem">Thông tin liên hệ</h2>
+    <button class="contact-toggle" id="ctToggle" type="button">💌 Nhấn để xem thông tin liên hệ</button>
+    <div class="contact-box" id="ctBox">
+      <div class="in">
+        <p>Mọi người đến cổng trường thì gọi điện để được hướng dẫn vị trí cụ thể ạ.</p>
+        <div class="contact-links">
+          <a id="ctCall"><span>📞 Gọi điện</span><em id="ctPhone"></em></a>
+          <a id="ctZalo" target="_blank" rel="noopener"><span>💬 Nhắn Zalo</span><em id="ctZaloTxt"></em></a>
+          <a id="ctMess" target="_blank" rel="noopener" hidden><span>✉️ Nhắn Messenger</span><em>m.me</em></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KẾT -->
+<section class="closing">
+  <div class="wrap rv">
+    <div class="note-paper">Một hành trình khép lại, một chặng đường mới mở ra.<br>Rất mong có sự hiện diện của những người thương yêu để cùng đánh dấu cột mốc đặc biệt này.</div>
+    <div class="sticker">Keep going!</div>
+    <div class="barcode"></div>
+  </div>
+  <footer>
+    <div class="script">Cảm ơn bạn rất nhiều ♡</div>
+    <p>Graduation Invitation · 2026</p>
+  </footer>
+</section>
+
+<button id="music" type="button" title="Bật/tắt nhạc" aria-label="Bật/tắt nhạc">🎵</button>
+<audio id="audio" loop preload="auto"></audio>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
